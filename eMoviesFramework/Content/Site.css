@@ -1,0 +1,382 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+for details on configuring this project to bundle and minify static web assets. */
+body {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    width: 75%;
+    margin: 0 auto;
+    font-family: Calibri;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+
+#btnupdate {
+    float: right;
+    height: 30px;
+    width: 200px;
+    /*background-image: linear-gradient(#F6FF99 1%, #A6D051 5%, #88A941);*/
+    background: linear-gradient(to bottom, #F6FF98 5%, #A6D051 20%, #88A941 100%);
+    color: white;
+    margin-right: 15px;
+    font-family: Calibri;
+    font-size: 18px;
+    border-width: 1px;
+}
+
+.btnorder {
+    float: right;
+    width: 290px;
+    height: 35px;
+    /*background-image: linear-gradient(#FFE371 1%, #FFA83D 5%, #E27C26);*/
+    background: linear-gradient(to bottom, #FFE371 5%, #FFA83D 20%, #E27C26 100%);
+    color: white;
+    font-size: 18px;
+    border-width: 1px;
+}
+
+.btnback {
+    float: left;
+    width: 300px;
+    height: 40px;
+    background: linear-gradient(to bottom, #FFE371 5%, #FFA83D 20%, #E27C26 100%);
+    color: white;
+    border-width: 1px;
+}
+
+h1 {
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 5px;
+}
+
+table#indextable {
+    padding: 15px;
+    width: 100%;
+}
+
+#maindiv {
+    align-content: center;
+    width: 100%;
+    border: solid;
+    border-color: orange;
+    border-width: 1px;
+    background-image: linear-gradient(#FFEADA, #FFBF88);
+    padding-bottom: 30px;
+}
+
+.porange {
+    text-align: center;
+    border: solid;
+    border-color: orange;
+    border-width: 1px;
+    font-size: 20px;
+}
+
+th {
+    text-align: left;
+    padding-top: 10px;
+}
+
+.IndexColumn1Div {
+    padding: 4px;
+    background-image: linear-gradient(#DCF7FF, #A2EBFF);
+    border: solid;
+    border-color: #46AAC5;
+    border-width: 1px;
+}
+
+.IndexColumn2Div {
+    padding: 7px;
+}
+
+.IndexColumn3Div {
+    padding: 4px;
+    background-image: linear-gradient(#DCF7FF, #A2EBFF);
+    border: solid;
+    border-color: #46AAC5;
+    border-width: 1px;
+}
+
+.input {
+    border: solid;
+    border-width: 2px;
+    border-color: #46AAC5;
+    width: 100%;
+    height: 23px;
+}
+
+.col1 {
+    text-align: left;
+    width: 50%;
+}
+
+.col2 {
+    text-align: center;
+    /*max-width: 100px;*/
+    width: 30%;
+}
+
+.col3 {
+    text-align: center;
+    /*max-width: 50px;*/
+    width: 15%;
+}
+
+#totalword {
+    padding-top: 10px;
+    text-align: right;
+    padding-right: 10px;
+}
+
+#totalno {
+    text-align: center;
+    font-weight: bold;
+}
+
+
+/*Order page main div*/
+#OMainDiv {
+    border: solid;
+    border-color: orange;
+    border-width: 1px;
+    background-image: linear-gradient(#FFEADA, #FFBF88);
+    padding-bottom: 30px;
+    padding-top: 30px;
+    width: 100%;
+}
+
+/*Order page second column*/
+.Ocol2 {
+    margin: 6px;
+    width: 260px;
+    padding-left: 45px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/*Order page first column*/
+.Ocol1 {
+    text-align: right;
+    width: 40%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    font-size: 17px;
+}
+
+/*.dropdown {
+    margin: 6px;
+    width: 20px;
+    padding-left: 45px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}*/
+
+.dropdownstyle {
+    width: 160px;
+    overflow: hidden;
+    border: 2px solid #46AAC5;
+    position: relative;
+    padding: 0px 0;
+    background-color: white;
+    margin-left: 43px;
+}
+
+    .dropdownstyle:after {
+        width: 0;
+        height: 0;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-top: 6px solid #46AAC5;
+        position: absolute;
+        top: 40%;
+        right: 5px;
+        content: "";
+        z-index: 98;
+    }
+
+    .dropdownstyle select {
+        width: 220px;
+        border: 0;
+        position: relative;
+        z-index: 99;
+        background: none;
+    }
+
+.Oinput {
+    border: solid;
+    border-width: 2px;
+    border-color: #46AAC5;
+}
+
+#emailcheck {
+    padding-left: 45px;
+}
+
+#OCMainDiv {
+    border: solid;
+    border-color: orange;
+    border-width: 1px;
+    background-image: linear-gradient(#FFEADA, #FFBF88);
+    padding-bottom: 30px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 5px;
+}
+
+.OCcol1 {
+    text-align: right;
+    width: 40%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+}
+
+.OCcol2 {
+    padding-left: 25px;
+}
+
+.descheaddiv {
+    border: solid;
+    border-width: 1px;
+    border-color: #179bc5;
+    background-image: linear-gradient(#DCF7FF, #A2EBFF);
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.descdiv {
+    border: solid;
+    border-color: orange;
+    border-width: 1px;
+    background-image: linear-gradient(#FFEADA, #FFBF88);
+    padding-bottom: 15px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 15px;
+    text-align: left
+}
+
+@media only screen and (max-width: 800px) {
+    .container {
+        margin-left: auto;
+        margin-right: auto;
+        width: 960px;
+    }
+}
+
+@media only screen and (min-width: 800px) {
+}
+
+.field-validation-error {
+    float: left;
+    padding-left: 1px;
+}
+
+/*Customer Checkbox Start*/
+.checkboxcont {
+    display: block;
+    position: relative;
+    padding-left: 0px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+    .checkboxcont input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+.checkmark {
+    position: absolute;
+    top: -5px;
+    left: 0;
+    height: 17px;
+    width: 17px;
+    background-color: white;
+    border: solid;
+    border-width: 2px;
+    border-color: #46AAC5;
+}
+
+.checkboxcont:hover input ~ .checkmark {
+    background-color: white;
+}
+
+.checkboxcont input:checked ~ .checkmark {
+    background-color: white;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkboxcont input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.checkboxcont .checkmark:after {
+    left: 5px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
+    border: solid #46AAC5;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+/*Customer Checkbox End*/
+
+.YourTicketsCol1 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+}
+
+.YourTicketsCol2 {
+    text-align: right;
+    padding-right: 15px;
+    float: right;
+}

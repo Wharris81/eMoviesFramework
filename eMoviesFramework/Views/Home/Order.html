@@ -1,0 +1,62 @@
+﻿@model eMoviesFramework.Models.CustomerDetails
+<h1>Order</h1>
+<body>
+    <br />
+    <form method="post" name="OrderForm">
+        <div id="OMainDiv">
+            <table>
+                <tr>
+                    <td class="Ocol1">Name</td>
+                    <td class="Ocol2"><input class="Oinput" asp-for="Name" size="60" value="asd" /><span asp-validation-for="Name"></span></td>
+                </tr>
+                <tr>
+                    <td class="Ocol1">Email</td>
+                    <td class="Ocol2"><input class="Oinput" asp-for="Email" size="60" value="a@a.com" /><span asp-validation-for="Email"></span></td>
+                </tr>
+                <tr>
+                    <td class="Ocol1">Credit card number</td>
+                    <td class="Ocol2"><input class="Oinput" asp-for="CardNumber" size="60" value="1111222233334444" /><span asp-validation-for="CardNumber"></span></td>
+                </tr>
+                <tr>
+                    <td class="Ocol1">Credit card type</td>
+                    <td class="dropdown">
+                        <div class="dropdownstyle">
+                            <select class="Oinput" asp-for="CardType">
+                                <option value="Visa">Visa</option>
+                                <option value="MasterCard">MasterCard</option>
+                                <option value="American Express">American Express</option>
+                            </select>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="Ocol1">Please email me future promotions</td>
+                    <td id="emailcheck"><label class="checkboxcont"><input type="checkbox" checked="checked" asp-for="EmailPreference"><span class="checkmark"></span></label></td>
+                </tr>
+            </table>
+        </div>
+
+        <br />
+
+        <button class="btnorder" style="float: right">Submit order >></button>
+
+    </form>
+</body>
+
+@*
+<script type="text/javascript">
+    function validateForm() {
+        var name = document.forms["OrderForm"]["Name"].value;
+        var letters = /^[A-Za-z]+$/;
+
+        if (name !== "" && name.match(letters)) {
+            return true;
+        }
+        alert("You must provide a valid name")
+        return false;
+        }*@
+@*</script>*@
+<script>
+    window.onload = checkJump;
+</script>
+

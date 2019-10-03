@@ -1,0 +1,65 @@
+﻿@using eMoviesFramework.Models
+@model SummaryModel
+
+<body>
+    <h1>Order confirmation</h1>
+
+    <br />
+    <br />
+    <br />
+
+    <div id="OCMainDiv">
+
+        <p style="float:left; font-size:17px; padding-left: 10px"><b>Your details</b></p>
+        <br />
+        <table>
+            <tr>
+                <td class="OCcol1">Name</td>
+                <td class="OCcol2">@Model.Customer.Name</td>
+            </tr>
+            <tr>
+                <td class="OCcol1">Email</td>
+                <td class="OCcol2">@Model.Customer.Email</td>
+            </tr>
+            <tr>
+                <td class="OCcol1">Credit card number</td>
+                <td class="OCcol2">@Model.Customer.CardNumberObfuscated</td>
+            </tr>
+            <tr>
+                <td class="OCcol1">Credit card type</td>
+                <td class="OCcol2">@Model.Customer.CardType</td>
+            </tr>
+            <tr>
+                <td class="OCcol1">Please email me future promotions</td>
+                <td class="OCcol2" id="EmailPref">@Model.Customer.EmailPreferenceYN</td>
+            </tr>
+        </table>
+
+        <p style="float:left; font-size:17px; padding-left: 10px"><b>Your tickets</b></p>
+
+        <br />
+        <br />
+        <br />
+
+        <table>
+            @foreach (var movie in Model.Tickets.Movies.Where(a => a.Quantity > 0))
+            {
+                <tr>
+                    <td class="YourTicketsCol1" id="Movie1">@movie.Name</td>
+                    <td class="YourTicketsCol2" id="Movie1Quantity">@movie.Quantity x £@movie.Price</td>
+                </tr>
+            }
+            <tr></tr>
+            <tr></tr>
+            <tr></tr>
+            <tr></tr>
+            <tr>
+                <td style="text-align: right;"><b>Total</b></td>
+                <td class="YourTicketsCol2" style="width: 120px;"><b>@Model.Tickets.CurrencyTotal</b></td>
+            </tr>
+        </table>
+    </div>
+    <br />
+</body>
+
+

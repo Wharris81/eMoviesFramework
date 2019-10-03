@@ -1,0 +1,23 @@
+﻿@model eMoviesFramework.Models.Movie
+<body>
+    <h1>Movie information</h1>
+
+    <br />
+    <div class="descheaddiv">
+        <p style="margin: 0px">@Model.Name</p>
+    </div>
+
+    <br />
+
+    <div class="descdiv">
+        <p>@Model.Description</p>
+    </div>
+
+    <br />
+
+    <div><img src="@Model.ImagePath" alt="@Model.Name Image" style="max-width: 500px" /></div>
+
+    <br clear="left" />
+
+    <button class="btnback" button onclick="window.location.href='/home/index'"><< Back</button>
+</body>
