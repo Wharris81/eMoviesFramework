@@ -11,8 +11,11 @@ namespace eMoviesFramework.Controllers
         private const string customerSessionKey = "customerdetails";
         private const string TicketsSessionKey = "ticketsModel";
         private const string CustomerIDSessionKey = "customerId";
-        private readonly SessionService _sessionService;
-        private readonly DatabaseMovieRepository _movieRepository;
+        //private readonly SessionService _sessionService;
+        //private readonly DatabaseMovieRepository _movieRepository;
+
+        private readonly DatabaseMovieRepository _movieRepository = new DatabaseMovieRepository();
+        private readonly SessionService _sessionService = new SessionService();
 
         //public HomeController(ISessionService sessionService, IMovieRepository movieRepository)
         //{
@@ -23,13 +26,10 @@ namespace eMoviesFramework.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            var ticketsModel = new TicketsModel();
-            //ticketsModel.Movies = _movieRepository.LoadMovies();
-            //var ticketsModel = new TicketsModel
-            //{
-            //    Movies = _movieRepository.LoadMovies()
-            //};
-
+            var ticketsModel = new TicketsModel
+            {
+                Movies = _movieRepository.LoadMovies()
+            };
             return View("Index", ticketsModel);
         }
 
@@ -44,28 +44,37 @@ namespace eMoviesFramework.Controllers
         //}
 
         [HttpPost]
-        public ActionResult Index(TicketsModel ticketsmodel, string submitbutton)
+        public ActionResult Index(TicketsModel ticketsModel, string submitbutton)
         {
-            _movieRepository.LookupMovieDetails(ticketsmodel);
+            _movieRepository.LookupMovieDetails(ticketsModel);
+            _sessionService.SetObject(TicketsSessionKey, ticketsModel);
 
-            _sessionService.SetObject(TicketsSessionKey, ticketsmodel);
+            //int totalQuantity = 0;
+            //foreach (Movie movie in ticketsmodel.Movies)
+            //{
+            //    totalQuantity = totalQuantity + movie.Quantity;
+            //}
 
-            if (ModelState.IsValid)
-            {
-                if (submitbutton.Equals("Update"))
+            //if (totalQuantity > 0)
+            //{
+                if (ModelState.IsValid)
                 {
-                    return View("Index", ticketsmodel);
-                }
-                else if (submitbutton.Equals("Order"))
-                {
-                    int customerId = _movieRepository.NewCustomer(ticketsmodel);
+                    if (submitbutton.Equals("Update"))
+                    {
+                    _movieRepository.CalculateNewTotal(ticketsModel);
+                        return View("Index", ticketsModel);
+                    }
+                    else if (submitbutton.Equals("Order"))
+                    {
+                        int customerId = _movieRepository.NewCustomer(ticketsModel);
 
-                    _sessionService.SetObject(CustomerIDSessionKey, customerId);
+                        _sessionService.SetObject(CustomerIDSessionKey, customerId);
 
-                    return Redirect("/home/order");
-                }
+                        return Redirect("/home/order");
+                    }
+                
             }
-            return View("Index", ticketsmodel);
+            return View("Index", ticketsModel);
         }
 
         [HttpGet]

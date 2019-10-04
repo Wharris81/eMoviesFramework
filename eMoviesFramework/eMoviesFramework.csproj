@@ -182,10 +182,6 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Views\Home\MovieDescription.html" />
-    <Content Include="Views\Home\OrderConf.html" />
-    <Content Include="Views\Home\Order.html" />
-    <Content Include="Views\Home\Index.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

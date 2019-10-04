@@ -161,11 +161,11 @@ namespace eMoviesFramework.Repositories
             }
         }
 
-        public void LookupMovieDetails(TicketsModel ticketsmodel)
+        public void LookupMovieDetails(TicketsModel ticketsModel)
         {
             var allMovies = new DatabaseMovieRepository().LoadMovies();
 
-            foreach (var movie in ticketsmodel.Movies)
+            foreach (var movie in ticketsModel.Movies)
             {
                 var matchingMovie = allMovies.FirstOrDefault(i => i.Id == movie.Id);
 
@@ -196,6 +196,19 @@ namespace eMoviesFramework.Repositories
 
             return customerId;
         }
+
+        //public bool CheckTotalQuantity()
+
+        public double CalculateNewTotal(TicketsModel ticketsModel)
+        {
+            foreach (Movie movie in ticketsModel.Movies)
+            {
+                ticketsModel.NewTotal = ticketsModel.NewTotal + (movie.Quantity * movie.Price);
+            }
+            return ticketsModel.NewTotal;
+        }
+
+
     }
 }
 
