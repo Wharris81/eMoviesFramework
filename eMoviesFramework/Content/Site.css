@@ -148,18 +148,18 @@ th {
     height: 23px;
 }
 
-.col1 {
+.IndexColumn1td {
     text-align: left;
     width: 50%;
 }
 
-.col2 {
+.IndexColumn2td {
     text-align: center;
     /*max-width: 100px;*/
     width: 30%;
 }
 
-.col3 {
+.IndexColumn3td {
     text-align: center;
     /*max-width: 50px;*/
     width: 15%;

@@ -47,9 +47,10 @@ namespace eMoviesFramework.Controllers
         public  ActionResult Index(TicketsModel ticketsModel, string submitbutton)
         {
             _movieRepository.LookupMovieDetails(ticketsModel);
+            _movieRepository.CalculateNewTotal(ticketsModel);
+            _movieRepository.CalculateTotalQuantity(ticketsModel);
+            
             _sessionService.SetObject(TicketsSessionKey, ticketsModel);
-
-            ticketsModel.TotalQuantity = _movieRepository.CalculateTotalQuantity(ticketsModel);
 
             if (ticketsModel.TotalQuantity > 0)
             {
@@ -57,7 +58,7 @@ namespace eMoviesFramework.Controllers
                 {
                     if (submitbutton.Equals("Update"))
                     {
-                        _movieRepository.CalculateNewTotal(ticketsModel);
+                        
                         return View("Index", ticketsModel);
                     }
                     else if (submitbutton.Equals("Order"))
@@ -111,7 +112,7 @@ namespace eMoviesFramework.Controllers
             if ((customerdetailscheck) == null)
             {
                 return Redirect("/home");
-            };
+            }
 
             var customerdetails = _movieRepository.GetCustomerInfo(_sessionService.GetObject<int>(CustomerIDSessionKey));
             var ticketsmodel = _movieRepository.GetOrderInfo(_sessionService.GetObject<int>(CustomerIDSessionKey), _sessionService.GetObject<TicketsModel>(TicketsSessionKey));
