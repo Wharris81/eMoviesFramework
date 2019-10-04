@@ -13,11 +13,6 @@ namespace eMoviesFramework.Models
         //    Movies = new Movie[0];
         //}
 
-        //public TicketsModel()
-        //{
-        //    DatabaseMovieRepository databaseMovieRepository = new DatabaseMovieRepository();
-        //    Movies = databaseMovieRepository.LoadMovies();
-        //}
         public double NewTotal { get; set; }
 
 
@@ -27,7 +22,7 @@ namespace eMoviesFramework.Models
 
         public Movie[] Movies { get; set; }
 
-        //[Range(1, 10000, ErrorMessage = "You must enter a quantity greater than zero")]
-        //public int TotalQuantity => Movies.Sum(a => a.Quantity);
+        //[Range(1, 1000, ErrorMessage = "Please enter a number between 1 and 1000")]
+        public int TotalQuantity { get; set; }
     }
 }

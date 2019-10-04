@@ -197,7 +197,14 @@ namespace eMoviesFramework.Repositories
             return customerId;
         }
 
-        //public bool CheckTotalQuantity()
+        public int CalculateTotalQuantity(TicketsModel ticketsModel)
+        {
+            foreach (var movie in ticketsModel.Movies)
+            {
+                ticketsModel.TotalQuantity = ticketsModel.TotalQuantity + movie.Quantity;
+            }
+            return ticketsModel.TotalQuantity;
+        }
 
         public double CalculateNewTotal(TicketsModel ticketsModel)
         {

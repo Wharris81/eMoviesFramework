@@ -10,6 +10,7 @@ namespace eMoviesFramework.Models
 
         public double Price { get; set; }
 
+        [Required]
         [Range(0, 1000, ErrorMessage = "Please enter a number between 0 and 1000")]
         public int Quantity { get; set; }
 

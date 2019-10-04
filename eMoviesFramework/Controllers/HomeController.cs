@@ -44,24 +44,20 @@ namespace eMoviesFramework.Controllers
         //}
 
         [HttpPost]
-        public ActionResult Index(TicketsModel ticketsModel, string submitbutton)
+        public  ActionResult Index(TicketsModel ticketsModel, string submitbutton)
         {
             _movieRepository.LookupMovieDetails(ticketsModel);
             _sessionService.SetObject(TicketsSessionKey, ticketsModel);
 
-            //int totalQuantity = 0;
-            //foreach (Movie movie in ticketsmodel.Movies)
-            //{
-            //    totalQuantity = totalQuantity + movie.Quantity;
-            //}
+            ticketsModel.TotalQuantity = _movieRepository.CalculateTotalQuantity(ticketsModel);
 
-            //if (totalQuantity > 0)
-            //{
+            if (ticketsModel.TotalQuantity > 0)
+            {
                 if (ModelState.IsValid)
                 {
                     if (submitbutton.Equals("Update"))
                     {
-                    _movieRepository.CalculateNewTotal(ticketsModel);
+                        _movieRepository.CalculateNewTotal(ticketsModel);
                         return View("Index", ticketsModel);
                     }
                     else if (submitbutton.Equals("Order"))
@@ -72,7 +68,7 @@ namespace eMoviesFramework.Controllers
 
                         return Redirect("/home/order");
                     }
-                
+                }
             }
             return View("Index", ticketsModel);
         }

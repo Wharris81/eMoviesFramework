@@ -4,7 +4,8 @@
 
     <br />
 
-    <form method="post">
+    @using (Html.BeginForm())
+    {
         <div id="maindiv">
             <table id="indextable">
                 <tr>
@@ -13,13 +14,13 @@
                     <th>Price</th>
                 </tr>
                 @for (int i = 0; i < Model.Movies.Length; i++)
-                {
+    {
                     <tr>
                         <td class="col1"><div class="IndexColumn1Div"><a href="/home/moviedescription?id=@Model.Movies[i].Id" style="color: black; text-decoration:none">@Model.Movies[i].Name</a></div></td>
-                        <td class="col2"><input type="hidden" asp-for=@Model.Movies[i].Id /><div class="IndexColumn2Div"><input class="input" type="text" size="30" asp-for=@Model.Movies[i].Quantity style="text-align:center" /></div><span asp-validation-for=@Model.Movies[i].Quantity></span></td>
+                        @Html.HiddenFor(a => a.Movies[i].Id)<td class="col2"><input type="hidden" /><div class="IndexColumn2Div">@Html.TextBoxFor(a => a.Movies[i].Quantity, new { Class="QuantityInput" })</div></td>
                         <td class="col3"><div class="IndexColumn3Div">£@Model.Movies[i].Price</div></td>
                     </tr>
-                }
+    }
                 <tr>
                     <td></td>
                     <td id="totalword"><b>Total</b></td>
@@ -42,5 +43,5 @@
         <br />
 
         <div style="float:right"><span asp-validation-for="TotalQuantity"></span></div>
-    </form>
+    }
 </body>
